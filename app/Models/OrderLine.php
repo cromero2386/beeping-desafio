@@ -16,4 +16,20 @@ class OrderLine extends Model
         'product_id',
         'qty',
     ];
+
+    /**
+     * Get the order that owns the order line.
+     */
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'order_id');
+    }
+
+    /**
+     * Get the product line
+     */
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id');
+    }
 }
