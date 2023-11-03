@@ -16,4 +16,12 @@ class Order extends Model
         'order_ref',
         'customer_name',
     ];
+
+    /**
+     * Get the order lines
+     */
+    public function orderLines()
+    {
+        return $this->hasMany(OrderLine::class, 'order_id', 'id');
+    }
 }

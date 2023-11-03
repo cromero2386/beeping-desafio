@@ -16,4 +16,11 @@ class Product extends Model
         'name',
         'cost',
     ];
+    /**
+     * Get the orderLines
+     */
+    public function orderLines()
+    {
+        return $this->hasMany(OrderLine::class, 'product_id', 'id');
+    }
 }
