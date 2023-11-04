@@ -2,84 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
-use Illuminate\Http\Request;
+use App\Jobs\CalculateOrderTotalJob;
+use App\Services\OrderTotalCalculatorService;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+    protected $orderTotalCalculatorService;
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function __construct(OrderTotalCalculatorService $orderTotalCalculatorService)
     {
-        //
+        $this->orderTotalCalculatorService = $orderTotalCalculatorService;
     }
-
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Returns in json format the orders with their total by calling the service.
      */
-    public function store(Request $request)
+    public function getTotalOrders()
     {
-        //
+        $orders = $this->orderTotalCalculatorService->getTotalOrders();
+
+        return response()->json($orders);
     }
-
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
+     * Displays the result of the job execution on the screen.
      */
-    public function show(Order $order)
-    {
-        //
-    }
+    public function getOrderTotalRunJob(){
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Order $order)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        //
+        CalculateOrderTotalJob::dispatch();
+        
     }
 }
