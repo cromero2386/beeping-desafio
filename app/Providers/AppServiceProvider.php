@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Services\OrderTotalCalculatorService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(OrderTotalCalculatorService::class, function ($app) {
+            return new OrderTotalCalculatorService();
+        });
     }
 
     /**
