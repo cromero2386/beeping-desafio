@@ -3,10 +3,10 @@
 
 En las siguientes lineas se especificaran configuración y ejecuciones necesaria para el funcionamiento correcto.
 
-1. Primero crear una base de datos MySQL con el beeping(puede ser otro)
-2. Una vez clonado el proyecto, debemos realizar los siguientes pasos:
-2.1 Componser install
-2.2 npm install
++ Primero crear una base de datos MySQL con el beeping(puede ser otro)
++ Una vez clonado el proyecto, debemos realizar los siguientes pasos:
++ + Componser install
++ + npm install
 
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
