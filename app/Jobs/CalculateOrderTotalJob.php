@@ -2,18 +2,17 @@
 
 namespace App\Jobs;
 
-use Illuminate\Support\Facades\Log;
 use Illuminate\Bus\Queueable;
 use Illuminate\Foundation\Bus\Dispatchable;
-use App\Services\OrderTotalCalculatorService;
+use App\Services\OrderService;
 
 class CalculateOrderTotalJob
 {
     use Dispatchable, Queueable;
 
-    public function handle(OrderTotalCalculatorService $orderTotalCalculatorService)
+    public function handle(OrderService $orderService)
     {
-        $totals = $orderTotalCalculatorService->getTotalOrders();
+        $totals = $orderService::getTotalOrders();
 
         // Convierte el array de totales a formato de cadena para mostrarlo en la consola
         $totalsAsString = json_encode($totals);

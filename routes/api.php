@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('get-total-orders', [OrderController::class,'getTotalOrders']);
 
 Route::get('get-total-orders-job', [OrderController::class,'getOrderTotalRunJob']);
+
+Route::get('get-list-orders', [OrderController::class,'listadoOrders']);
