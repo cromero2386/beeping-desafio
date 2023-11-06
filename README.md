@@ -5,8 +5,8 @@ En las siguientes lineas se especificaran configuración y ejecuciones necesaria
 
 + Primero crear una base de datos MySQL con el beeping(puede ser otro)
 + Una vez clonado el proyecto, debemos realizar los siguientes pasos:
-    + Componser install
-    + npm install
+    + `componser install` # Tener instalado composer, en caso contrario [Descargar composer](https://getcomposer.org/) y instalar.
+    + `npm install` # Tener instalado node que ya incluye npm
     + Configurar el archivo .env las variables de conexión de base de datos
         + DB_CONNECTION=mysql #motor de base de datos
         + DB_HOST= # Dirección IP del host
@@ -15,7 +15,11 @@ En las siguientes lineas se especificaran configuración y ejecuciones necesaria
         + DB_USERNAME=  # Nombre de usuarios que pide la conexión, generalmente es root 
         + DB_PASSWORD=  # Password del usuario que necesita la conexión, en caso que no tenga dejar en blanco
     + Una ves configurado la conexión ejecutar la migración a la base de datos con el comando: 
-
+        + `php artisan migrate`
+    + Luego de la migración de la tablas ejecutar el comando para que se cargan en la base de datos: 
+        + `php artisan db:seed`
+        + Para la generación de datos se utiliza los Model Factories de Laravel
++ Una ves realizado todos los pasos deberiamos visualizar la tabla con las ordenes y la posibilidad de filtrar por intermedio de DataTables.
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
