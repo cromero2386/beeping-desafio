@@ -7,6 +7,14 @@ En las siguientes lineas se especificaran configuración y ejecuciones necesaria
 + Una vez clonado el proyecto, debemos realizar los siguientes pasos:
     + Componser install
     + npm install
+    + Configurar el archivo .env las variables de conexión de base de datos
+        + DB_CONNECTION=mysql #motor de base de datos
+        + DB_HOST= # Dirección IP del host
+        + DB_PORT= # Puerto de conexión a MySQL
+        + DB_DATABASE=beeping # Nombre de la base de datos, debe coincidir con el creado en el gestor de MySQL
+        + DB_USERNAME=  # Nombre de usuarios que pide la conexión, generalmente es root 
+        + DB_PASSWORD=  # Password del usuario que necesita la conexión, en caso que no tenga dejar en blanco
+    + Una ves configurado la conexión ejecutar la migración a la base de datos con el comando: 
 
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
