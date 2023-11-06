@@ -7,7 +7,7 @@ En las siguientes lineas se especificaran configuración y ejecuciones necesaria
 + Una vez clonado el proyecto, debemos realizar los siguientes pasos:
     + `componser install` # Tener instalado composer, en caso contrario [Descargar composer](https://getcomposer.org/) y instalar.
     + `npm install` # Tener instalado node que ya incluye npm
-    + `npm run build` # Para compilar el ccs que uso Tailwind
+    + `npm run prod` # Para compilar el ccs que uso Tailwind
     + Crear un copia del `.env.example` con el nombre `.env` y agregar valores en las variables que siguen
         + `APP_KEY`si se encuentra vacia ejecutar `php artisan key:generate`
         + `DB_CONNECTION=mysql` #motor de base de datos
