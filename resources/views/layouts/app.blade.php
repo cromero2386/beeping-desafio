@@ -120,7 +120,7 @@
 	<script>
 		$(document).ready(function() {
 			var table = $('#orders-list').DataTable({
-					responsive: true
+					responsive: false
 				})
 				.columns.adjust()
 				.responsive.recalc();
